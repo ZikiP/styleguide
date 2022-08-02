@@ -41,31 +41,18 @@
 
 ## 使用说明
 
-### TypeScript/Vue3 类项目
-
-示例：Visual Studio Code 中开发项目使用 .prettierrc
-
-macOS/Linux 系统
+前置步骤，进入您所在项目的根目录下，将此仓库作为 Git 子模块仓库添加
 
     cd path/to/my/project
     git submodule add git@github.com:ggt1024/styleguide.git
-    git commit -m "add ggt1024/styleguide submodule" styleguide
-
-    ln -s styleguide/dot-prettierrc .prettierrc
-
-win10 系统，需要以管理员身份运行"命令提示符"程序，并执行以下
-
-    cd c:\path\to\my\project
-    git submodule add git@github.com:ggt1024/styleguide.git
-    git commit -m "add ggt1024/styleguide submodule" styleguide
-
-    mklink .prettierrc styleguide\dot-prettierrc
 
 以后日常更新规范子模块
 
     git submodule foreach --recursive git pull origin master
 
-配置步骤
+### TypeScript/Vue3 类项目
+
+**使用 Visual Studio Code + volar 作为 TypeScript/Vue3 开发环境，保存文件自动格式化配置步骤**
 
 - 安装并启用 volar 插件；
 - 启用 `Take Over Mode` 禁用 `TypeScript and JavaScript Language Features`。macOS cmd+shift+P / Windows ctrl+shift+p 执行命令 `Extensions: Show Build-in Extensions`，设置为 `Disable`；
@@ -73,6 +60,19 @@ win10 系统，需要以管理员身份运行"命令提示符"程序，并执行
 - (可选）macOS cmd+shift+P / Windows ctrl+shift+p 执行命令 `Preferences: Open Settings (JSON)`，将 example.vsc.win10.settings.json 覆盖本地默认配置。
 
 参考：https://github.com/johnsoncodehk/volar/discussions/471
+
+**git commit 时自动格式化配置步骤**
+
+配置
+运行 autoConfigFrontEnd.bat 的批处理文件，等待依赖安装完毕；
+
+在 package.json 文件中找到 `lint-staged` ：
+
+    "lint-staged": {
+    	"*.{js,css,md,ts,tsx,vue}": "prettier --write"
+    }
+
+在 `{}` 中添加要校验的文件类型，如 `jsx`，即可正常使用。
 
 ### gRPC 类项目
 
