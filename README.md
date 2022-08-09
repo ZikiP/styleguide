@@ -64,7 +64,7 @@
 **git commit 时自动格式化配置步骤**
 
 配置
-运行 autoConfigFrontEnd.bat 的批处理文件，等待依赖安装完毕；
+将 autoConfigFrontEnd.bat 批处理文件复制或移动到项目根目录并运行，等待依赖安装完毕；
 
 在 package.json 文件中找到 `lint-staged` ：
 
