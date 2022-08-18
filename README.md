@@ -17,9 +17,17 @@
 
 整体规范由以下三部分组成。
 
+- 系统设计通用原则
 - 文件编码规范
 - 代码编码规范
 - 版本控制提交规范
+
+**系统设计通用原则**
+- [KISS](https://en.wikipedia.org/wiki/KISS_principle)
+- [Don't Make Me Think](https://en.wikipedia.org/wiki/Don%27t_Make_Me_Think)
+- 如无必要，不要打扰用户
+  - 反例：有事无事，都打印大量日志
+- 打印日志要么不打，要打就尽可能带上[5W+1H](https://en.wikipedia.org/wiki/Five_Ws)上下文信息以便后续跟踪 
 
 **文件编码规范**
 
