@@ -23,11 +23,12 @@
 - 版本控制提交规范
 
 **系统设计通用原则**
+
 - [KISS](https://en.wikipedia.org/wiki/KISS_principle)
 - [Don't Make Me Think](https://en.wikipedia.org/wiki/Don%27t_Make_Me_Think)
 - 如无必要，不要打扰用户
   - 反例：有事无事，都打印大量日志
-- 打印日志要么不打，要打就尽可能带上[5W+1H](https://en.wikipedia.org/wiki/Five_Ws)上下文信息以便后续跟踪 
+- 打印日志要么不打，要打就尽可能带上[5W+1H](https://en.wikipedia.org/wiki/Five_Ws)上下文信息以便后续跟踪
 
 **文件编码规范**
 
@@ -41,9 +42,10 @@
 **版本控制提交规范**
 
 - 每此提交一个尽可能小变更的 commit，如实现一个功能/修复一个 bug/格式化若干个相关文档等等；避免一次性提交大量变更对代码评审、差异比较不友好；
-- commit 如果跟某个 issue 相关，应该包含指向
-  - 如同仓库内指向 `fix ES6 does not works on IE11 #12`
-  - 如跨项目或仓库指向 `fix bug xxx myorg/myrepo#3`
+- commit 如果跟某个 issue 相关，应该包含指向，执行 commitlint 提交规范：
+  - 如同仓库内指向 `fix: ES6 does not works on IE11 #12`
+  - 如跨项目或仓库指向 `fix: bug xxx myorg/myrepo#3`
+  - 常用 tpe 类型可见于文件：`prettier&commitlint.md`
 - 中英文注释(comment)均可，建议英文，保证任何系统下不会乱码；
 - 不要提交跟功能说明、历史说明无关的临时类注释；
 
@@ -74,13 +76,15 @@
 配置
 将 autoConfigFrontEnd.bat 批处理文件复制或移动到项目根目录并运行，等待依赖安装完毕；
 
-在 package.json 文件中找到 `lint-staged` ：
+- 在 package.json 文件中找到 `lint-staged` ：
 
-    "lint-staged": {
-    	"*.{js,css,md,ts,tsx,vue}": "prettier --write"
-    }
+  "lint-staged": {
+  "\*.{js,css,md,ts,tsx,vue}": "prettier --write"
+  }
 
-在 `{}` 中添加要校验的文件类型，如 `jsx`，即可正常使用。
+  在 `{}` 中添加 commit 时要校验的文件类型，如 `jsx`，即可正常使用。
+
+- 在`.vscode`目录中找到`settings.json`，即可修改文件中需要使用到的`prettier`的文件类型。
 
 ### gRPC 类项目
 
